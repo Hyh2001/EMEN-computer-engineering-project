@@ -24,13 +24,13 @@ void setup(){
   AFMS.begin(50);      //舵机控制频率为50
   // connect jpypad
   search_controller();
-  delay(500);  
   back_to_original_angle();
   
 
 }
 
 void loop(){
+  control_gamepad(ps2x);
   
 
 
