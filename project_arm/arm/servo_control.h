@@ -49,13 +49,31 @@ void write_servo(char servo_num,char angle){
     AFMS.setPWM( servo_num, pulse );
 }
 void back_to_original_angle(){
-    write_servo(catch_pin,90);
-    write_servo(small_arm_pin,45);
-    write_servo(big_arm_pin,45);
+    write_servo(catch_pin,78);
+    write_servo(small_arm_pin,90);
+    write_servo(big_arm_pin,90);
     write_servo(base_pin,90);
 }
 
-
+void manual_control()
+{
+    back_to_original_angle();
+    for ( int i = 0; i < num_servos; i ++ )
+    {   
+      if (value[i] > 150)
+      {
+        if ( real_angle[i] < MAX[i] )
+        real_angle[i] += 1;
+        write_servo( PIN[i], real_angle[i] );
+      }
+        else if (value[i] < 100)
+      {
+        if ( real_angle[i] > MIN[i] )
+        real_angle[i] -= 1;
+        write_servo( PIN[i], real_angle[i] );
+      }        
+     }   
+}
 
 
 
