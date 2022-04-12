@@ -17,9 +17,12 @@ const char small_arm_pin = 1;
 const char big_arm_pin = 2;
 const char base_pin = 3;
 
+
 Adafruit_MotorShield AFMS = Adafruit_MotorShield();
 char MIN[4];
 char MAX[4];
+int angle_now[4];
+int angle_recorded[4]; 
 void set_limits(){
     MIN[big_arm_pin] = 40;
     MIN[small_arm_pin] = 45;
@@ -29,11 +32,14 @@ void set_limits(){
     MAX[small_arm_pin] = 105;
     MAX[catch_pin] = 180;
     MAX[base_pin] = 180;  
+    angle_now[catch_pin] = 78;
+    angle_now[small_arm_pin] = 90;
+    angle_now[big_arm_pin] = 90;
+    angle_now[base_pin] = 90;
 }
 
 
 void write_servo(char servo_num,char angle){
-    set_limits();
     if(angle > MAX[servo_num] || angle < MIN[servo_num]){
         Serial.println("angle out of range");
         return;
@@ -55,25 +61,25 @@ void back_to_original_angle(){
     write_servo(base_pin,90);
 }
 
-void manual_control()
-{
-    back_to_original_angle();
-    for ( int i = 0; i < num_servos; i ++ )
-    {   
-      if (value[i] > 150)
-      {
-        if ( real_angle[i] < MAX[i] )
-        real_angle[i] += 1;
-        write_servo( PIN[i], real_angle[i] );
-      }
-        else if (value[i] < 100)
-      {
-        if ( real_angle[i] > MIN[i] )
-        real_angle[i] -= 1;
-        write_servo( PIN[i], real_angle[i] );
-      }        
-     }   
-}
+// void manual_control()
+// {
+//     back_to_original_angle();
+//     for ( int i = 0; i < num_servos; i ++ )
+//     {   
+//       if (value[i] > 150)
+//       {
+//         if ( real_angle[i] < MAX[i] )
+//         real_angle[i] += 1;
+//         write_servo( PIN[i], real_angle[i] );
+//       }
+//         else if (value[i] < 100)
+//       {
+//         if ( real_angle[i] > MIN[i] )
+//         real_angle[i] -= 1;
+//         write_servo( PIN[i], real_angle[i] );
+//       }        
+//      }   
+// }
 
 
 

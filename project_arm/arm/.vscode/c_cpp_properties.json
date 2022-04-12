@@ -17,8 +17,8 @@
             "includePath": [
                 "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\cores\\arduino",
                 "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\variants\\standard",
-                "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\Wire\\src",
                 "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\SoftwareSerial\\src",
+                "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\Wire\\src",
                 "d:\\program files\\arduino-1.8.19\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
                 "d:\\program files\\arduino-1.8.19\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
                 "d:\\program files\\arduino-1.8.19\\hardware\\tools\\avr\\avr\\include"
