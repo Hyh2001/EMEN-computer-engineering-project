@@ -43,7 +43,7 @@ public:
 
 };
 
-float PID_cal(PID_Controller* pid_x, int Now_value, int Aim_value, char flag){  // flag means using integral part
+float PID_cal(PID_Controller* pid_x, int Now_value, int Aim_value, char flag = 0){  // flag means using integral part
   float error = Now_value - Aim_value;
   pid_x->set_error(error);
 
@@ -59,9 +59,17 @@ float PID_cal(PID_Controller* pid_x, int Now_value, int Aim_value, char flag){  
   return output;
 }
 
-void speed_control(){
-
-    
+int* speed_control(){
+    int base_output = PID_cal(pid_base,angle_now[base_pin],angle_recorded[base_pin]);
+    int catch_output = PID_cal(pid_catch,angle_now[catch_pin],angle_recorded[catch_pin]);
+    int big_arm_output = PID_cal(pid_big_arm,angle_now[big_arm_pin],angle_recorded[big_arm_pin]);
+    int small_arm_output = PID_cal(pid_small_arm,angle_now[small_arm_pin],angle_recorded[small_arm_pin]);
+    int* output = new int[4];
+    output[0] = base_output;
+    output[1] = catch_output;
+    output[2] = big_arm_output;
+    output[3] = small_arm_output;
+    return output;
 }
 
 

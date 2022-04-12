@@ -4,6 +4,7 @@
 #include "BTJoystick.h"
 #include <SoftwareSerial.h> 
 #include "servo_control.h"
+#include "pid.h"
 
 SoftwareSerial  softSerial( 2, 3 ); 
 //define joypad
@@ -74,10 +75,11 @@ void automatic_control(PS2X ps2x){
         Serial.println("no gamepad");
         return ;
     }
-    write_servo(catch_pin,angle_recorded[catch_pin]);
-    write_servo(small_arm_pin,angle_recorded[small_arm_pin]);
-    write_servo(big_arm_pin,angle_recorded[big_arm_pin]);
-    write_servo(base_pin,angle_recorded[base_pin]);
+    int* output = speed_control();
+    write_servo(catch_pin,output[catch_pin]);
+    write_servo(small_arm_pin,output[small_arm_pin]);
+    write_servo(big_arm_pin,output[big_arm_pin]);
+    write_servo(base_pin,output[base_pin]);
     delay(5000);
     write_servo(catch_pin,angle_now[catch_pin]);
     write_servo(small_arm_pin,angle_now[small_arm_pin]);

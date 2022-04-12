@@ -11,10 +11,10 @@
 
 
 //PID
-PID_Controller pid_base;
-PID_Controller pid_big_arm;
-PID_Controller pid_small_arm;
-PID_Controller pid_catch;
+PID_Controller* pid_base;
+PID_Controller* pid_big_arm;
+PID_Controller* pid_small_arm;
+PID_Controller* pid_catch;
 
 float count = 0;
 void setup(){
