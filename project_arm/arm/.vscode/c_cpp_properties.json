@@ -19,6 +19,7 @@
                 "F:\\KIT PRO\\arduino-1.8.19\\hardware\\arduino\\avr\\variants\\standard",
                 "F:\\KIT PRO\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\Wire\\src",
                 "F:\\KIT PRO\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\SoftwareSerial\\src",
+                "C:\\Users\\15809\\Documents\\Arduino\\libraries\\NewPing\\src",
                 "f:\\kit pro\\arduino-1.8.19\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
                 "f:\\kit pro\\arduino-1.8.19\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
                 "f:\\kit pro\\arduino-1.8.19\\hardware\\tools\\avr\\avr\\include"

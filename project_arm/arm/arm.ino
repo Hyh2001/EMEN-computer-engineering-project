@@ -5,6 +5,7 @@
 #include "PS2X_lib.h"                     
 #include "BTJoystick.h"      
 #include "pid.h"             
+#include <NewPing.h>
 
 //define four pins for ps2
 #define PS2_SEL 10  
@@ -13,7 +14,13 @@
 #define PS2_CLK 13  
 
 #define pressures   true    
-#define rumble      true    
+#define rumble      true  
+//for ultrasound
+#define TRIGGER_PIN  A0
+#define ECHO_PIN     A1
+#define MAX_DISTANCE 20
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+
 SoftwareSerial  softSerial( 2, 3 );      
 
 PS2X ps2x;                     //定义PS2手柄
@@ -53,7 +60,18 @@ void writeServo( uint8_t n, uint8_t angle )
     pulse /= pulselength;      
     AFMS.setPWM( n, pulse );    //pwm 
 }
-
+void control_sersor(){
+    // Serial.print("Distance is:"  );
+    // Serial.println(sonar.ping_cm());
+    int dis = sonar.ping_cm();
+    if(dis > 15 && dis <18){
+        writeServo(PIN[0],90);
+    }
+    delay(1000);
+    // if(sonar.ping_cm() > 5){
+    //     Serial.print( "catch action" );
+    // }
+}
 void setup()
 {
     Serial.begin( 57600 );  
@@ -98,18 +116,23 @@ void setup()
         currentAngle[i] = INITANGLE[i];
         writeServo( PIN[i], INITANGLE[i] );
     }
+    
 }
 
 void loop()
 {  
-        ps2x.read_gamepad( false, vibrate );    //vibrate close
-        vibrate = ps2x.Analog( PSAB_CROSS );    //press x to vibrate
+            //for ultrasound
+        
+
+        //ps2x.read_gamepad( false, vibrate );    //vibrate close
+        //vibrate = ps2x.Analog( PSAB_CROSS );    //press x to vibrate
            
         Control();            //motor control    
         ReadRockerValue();    // joypad control
         record_angle();
         mode_control();
         delay( 10 );
+
 }
 
 void init_Pins(){  
@@ -192,6 +215,7 @@ void mode_control(){
     if(ps2x.Button(PSB_PAD_RIGHT)){
         automatic_control();
     }
+    control_sersor();
     return;
 }
 
