@@ -5,9 +5,9 @@
 
 class PID_Controller{
 private:
-    float KI;
-    float KP;
-    float KD;
+    float KI= 1;
+    float KP= 1;
+    float KD= 1;
     float error_now;
     float error_pre;
     float integral;
@@ -44,8 +44,8 @@ public:
 
 };
 
-float PID_cal(PID_Controller* pid_x, int Now_value, int Aim_value, char flag = 0){  // flag means using integral part
-  float error = Now_value - Aim_value;
+float PID_cal(PID_Controller* pid_x, int preserve_value, int currentAngle, char flag = 0){  // flag means using integral part
+  float error = preserve_value - currentAngle;
   pid_x->set_error(error);
 
   float output = pid_x->get_KD() * (pid_x->get_error_now() - pid_x->get_error_pre())+
