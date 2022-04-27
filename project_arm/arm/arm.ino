@@ -160,30 +160,34 @@ void Home()
   }
 }
 void record_angle(){
-    int preserve_value[4];
+    
     if(ps2x.Button(PSB_PAD_UP)){
         for(int i=0;i<SERVOS;i++){
             angle_recorded_1[i] = currentAngle[i];
-            preserve_value[i] = angle_recorded_1[i];
-            angle_recorded_1[i] = angle_recorded_2[i];
+            
         }
     }
     if(ps2x.Button(PSB_PAD_DOWN)){
         for(int i=0;i<SERVOS;i++){
             angle_recorded_2[i] = currentAngle[i];
-            angle_recorded_2[i] = preserve_value[i];
-            preserve_value[i] = 0;
+            
         }
     }
 }
 void automatic_control(){
+        int preserve_value[4];
         for(int i=0;i<SERVOS;i++){
             writeServo(i,angle_recorded_1[i]);
+            preserve_value[i] = angle_recorded_1[i];
+            angle_recorded_1[i] = angle_recorded_2[i];
             delay(50);
         }
         //delay(5000);
         for(int i=0;i<SERVOS;i++){
             writeServo(i,angle_recorded_2[i]);
+            
+            angle_recorded_2[i] = preserve_value[i];
+            preserve_value[i] = 0;
             delay(50);
         }
 }
