@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Arduino",
-            "compilerPath": "D:\\Program files\\arduino-1.8.19\\hardware\\tools\\avr\\bin\\avr-g++",
+            "compilerPath": "F:\\KIT PRO\\arduino-1.8.19\\hardware\\tools\\avr\\bin\\avr-g++",
             "compilerArgs": [
                 "-std=gnu++11",
                 "-fpermissive",
@@ -15,16 +15,17 @@
             ],
             "intelliSenseMode": "gcc-x64",
             "includePath": [
-                "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\cores\\arduino",
-                "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\variants\\standard",
-                "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\Wire\\src",
-                "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\SoftwareSerial\\src",
-                "d:\\program files\\arduino-1.8.19\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
-                "d:\\program files\\arduino-1.8.19\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
-                "d:\\program files\\arduino-1.8.19\\hardware\\tools\\avr\\avr\\include"
+                "F:\\KIT PRO\\arduino-1.8.19\\hardware\\arduino\\avr\\cores\\arduino",
+                "F:\\KIT PRO\\arduino-1.8.19\\hardware\\arduino\\avr\\variants\\standard",
+                "F:\\KIT PRO\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\Wire\\src",
+                "F:\\KIT PRO\\arduino-1.8.19\\hardware\\arduino\\avr\\libraries\\SoftwareSerial\\src",
+                "C:\\Users\\15809\\Documents\\Arduino\\libraries\\NewPing\\src",
+                "f:\\kit pro\\arduino-1.8.19\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
+                "f:\\kit pro\\arduino-1.8.19\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
+                "f:\\kit pro\\arduino-1.8.19\\hardware\\tools\\avr\\avr\\include"
             ],
             "forcedInclude": [
-                "D:\\Program files\\arduino-1.8.19\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
+                "F:\\KIT PRO\\arduino-1.8.19\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
